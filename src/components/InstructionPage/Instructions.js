@@ -32,18 +32,8 @@ export default function Instructions() {
         <Grid item 
           sm={12}
         >
-          <iframe
-            title="ppt"
-            src="https://stdntpartners-my.sharepoint.com/personal/simran_makhija_studentambassadors_com/_layouts/15/Doc.aspx?sourcedoc={63016ab5-64f6-4836-b8d6-f75e0c6ad21b}&amp;action=embedview&amp;wdAr=1.7777777777777777"
-            frameborder="0">
-            This is an embedded
-            <a target="_blank" rel="noopener noreferrer" href="https://office.com">
-              Microsoft Office
-            </a>
-            presentation, powered by
-            <a target="_blank" rel="noopener noreferrer" href="https://office.com/webapps">
-            Office</a>.
-          </iframe>
+          <iframe src="https://onedrive.live.com/embed?cid=703B19A0781C4859&amp;resid=703B19A0781C4859%21148&amp;authkey=AHvfQz-RUmtl0Co&amp;em=2&amp;wdAr=1.7777777777777777" width="962px" height="565px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
         </Grid>
         <Grid item justify="flex-end" align="right">
         <div className={classes.root}>
