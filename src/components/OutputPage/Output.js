@@ -1,6 +1,5 @@
 import React from 'react';
-import Editor from './Editor';
-import { Container,Grid,Button,Typography } from '@material-ui/core';
+import { Typography, Button, Grid,Container } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -13,15 +12,17 @@ const useStyles = makeStyles((theme) => ({
     input: {
       display: 'none',
     },
-  }));
+}));
+  
 
-function EditorPage() {
+function Output() {
     const classes = useStyles();
     return (
-        <Container>
+        <div>
+            <Container>
             <br/>
             < Typography variant="h2" align="center">
-                Your Code
+                Output
             </Typography>
             <br/>
             <Grid
@@ -30,14 +31,14 @@ function EditorPage() {
                 alignItems="center"
             >
                 <Grid item>
-                    <Editor/>   
+                    code input output
                 </Grid>
                 <br/>
                 <Grid item justify="flex-end" align="right">
                 <div className={classes.root}>
-                    <Link to="/out">
+                    <Link to="/done">
                         <Button variant="contained" color="secondary" component="span">
-                            Show output
+                            Finish
                         </Button>
                     </Link>
                 </div>
@@ -45,7 +46,8 @@ function EditorPage() {
             </Grid>
             <br />
         </Container>
+        </div>
     )
 }
 
-export default EditorPage;
+export default Output;
