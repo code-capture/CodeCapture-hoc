@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import Landing from './LandingPage/Landing';
+import Instructions from './InstructionPage/Instructions';
 import Upload from './UploadPage/Upload';
 import EditorPage from './EditorPage/EditorPage';
 import Exit from './ExitPage/Exit';
@@ -17,6 +18,9 @@ function Main() {
         <Switch>
           <Route path="/edit">
             <EditorPage />
+          </Route>
+          <Route path="/instructions">
+            <Instructions />
           </Route>
           <Route path="/upload">
             <Upload />
