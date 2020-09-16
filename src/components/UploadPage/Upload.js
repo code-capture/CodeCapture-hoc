@@ -1,8 +1,6 @@
 import { Typography, Container, Grid, Button } from '@material-ui/core';
-const React = require('react');
-
-
-  
+import { Link } from 'react-router-dom';
+import React from 'react';
 
 class Upload extends React.Component {
     constructor(props){
@@ -47,20 +45,19 @@ class Upload extends React.Component {
                         </Button>
                     </label>
                 </Grid>
-                {/* <Grid item>
-                    <input 
-                        type="file"
-                        style={{ display: 'none' }}
-                        accept="image/*"
-                        id="contained-button-file"  
-                        onChange={this.handleChange}
-                    />
-                    <label htmlFor="contained-button-file">
-                        <Button variant="contained" color="secondary" component="span">
-                            Click
-                        </Button>
-                    </label>
-                </Grid> */}
+                <Grid item>
+                  <Link to="/edit">
+                  { this.state.file ?
+                    <Button variant="contained" color="secondary" component="span">
+                      Continue to editor
+                    </Button> 
+                    :
+                    <Button variant="contained" disabled color="secondary" component="span">
+                      Continue to editor
+                    </Button>
+                  }
+                  </Link>  
+                </Grid>
               </Grid>
             </div> 
             <br />
@@ -73,14 +70,15 @@ class Upload extends React.Component {
                 justify="center"
                 alignItems="center"
             >
-            <Grid item align="center">           
-                <img
-                    alt="" src={this.state.file}
-                    height="50%"
-                    width="50%"
-                />
+              <Grid item align="center">           
+                  <img
+                      alt="" src={this.state.file}
+                      height="50%"
+                      width="50%"
+                  />
+              </Grid>
             </Grid>
-            </Grid>
+          
         </Container>
       );
     }
