@@ -22,7 +22,7 @@ function Editor() {
   showGutter={true}
   highlightActiveLine={true}
   value={`function onLoad(editor) {
-  console.log("i've loaded");
+  console.log("heyo! looks like the picture had no code.. go back and retake?");
 }`}
   setOptions={{
   enableBasicAutocompletion: true,
