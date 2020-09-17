@@ -21,9 +21,7 @@ function Editor() {
   showPrintMargin={true}
   showGutter={true}
   highlightActiveLine={true}
-  value={`function onLoad(editor) {
-  console.log("heyo! looks like the picture had no code.. go back and retake?");
-}`}
+  value={`console.log("Hello world!")`}
   setOptions={{
   enableBasicAutocompletion: true,
   enableLiveAutocompletion: true,

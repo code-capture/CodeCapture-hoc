@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Button, Grid,Container } from '@material-ui/core';
+import { Paper, Typography, Button, Grid,Container } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -9,8 +9,11 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
       },
     },
-    input: {
-      display: 'none',
+    paper: {
+        padding: '6px 16px',
+    },
+    secondaryTail: {
+        backgroundColor: theme.palette.secondary.main,
     },
 }));
   
@@ -31,9 +34,38 @@ function Output() {
                 alignItems="center"
             >
                 <Grid item>
-                    code input output
+                <Paper elevation={3} className={classes.paper}>
+                    <Typography  variant="h5" component="h1">
+                        Code
+                    </Typography>
+                    <Typography variant="body1" >
+                        console.log("Hello World!")
+                    </Typography>
+                </Paper>
                 </Grid>
-                <br/>
+                <br />
+                <Grid item>
+                    <Paper elevation={3} className={classes.paper}>
+                        <Typography  variant="h5" component="h1">
+                            Input
+                        </Typography>
+                        <Typography variant="body1" >
+                            {"/* input here */"}
+                        </Typography>
+                    </Paper>
+                </Grid>
+                <br /> 
+                <Grid item>
+                    <Paper elevation={3} className={classes.paper}>
+                        <Typography  variant="h5" component="h1">
+                            Output
+                        </Typography>
+                        <Typography variant="body1" >
+                            {"Hello World!"}
+                        </Typography>
+                    </Paper>
+                </Grid>
+                <br/>     
                 <Grid item justify="flex-end" align="right">
                 <div className={classes.root}>
                     <Link to="/done">
