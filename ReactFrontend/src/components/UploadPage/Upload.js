@@ -15,6 +15,18 @@ class Upload extends React.Component {
         file: URL.createObjectURL(event.target.files[0])
       })
     }
+    
+    async continueToEditor() {
+      const response = await fetch('/edit', {
+        method: 'POST', 
+        contentType: false,
+        cache: false,
+        processData: false,
+      },
+      );
+      console.log(response);
+    }
+  
     render() {
         
       return (
@@ -48,7 +60,12 @@ class Upload extends React.Component {
                 <Grid item>
                   <Link to="/edit">
                   { this.state.file ?
-                    <Button variant="contained" color="secondary" component="span">
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      component="span"
+                      onClick={this.continueToEditor}
+                    >
                       Continue to editor
                     </Button> 
                     :

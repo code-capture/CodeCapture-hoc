@@ -4,10 +4,10 @@ import {TextField,Grid} from '@material-ui/core';
 
 
 export default function STDIN() {
-  const [value, setValue] = React.useState('');
+  const [STDIN, setSTDIN] = React.useState('');
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    setSTDIN(event.target.value);
   };
 
   return (
@@ -23,7 +23,7 @@ export default function STDIN() {
                 color="secondary"
                 fullWidth
                 rowsMax={4}
-                value={value}
+                value={STDIN}
                 onChange={handleChange}
                 variant="filled"
                 helperText="Standard input"
