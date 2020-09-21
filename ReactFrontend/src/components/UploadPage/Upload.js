@@ -15,23 +15,24 @@ class Upload extends React.Component {
         file: event.target.files[0]
       })
     }
-    
-  async continueToEditor(event) {
-    event.preventDefault();
-    const data = new FormData();
+  
+  async uploadImage(event) {
+    event.preventDefault();const data = new FormData();
     data.append('file', this.state.file);
     //post req to upload
-    fetch('/upload', {
-      type: "POST",
-      url: "/upload",
-      data: data, 
-      contentType: false,
-      cache: false,
-      processData: false
-    });
+      fetch('/uploadImage', {
+        type: "POST",
+        data: data, 
+        contentType: false,
+        cache: false,
+        processData: false
+      });
+  }
 
+  async continueToEditor(event) {
+    event.preventDefault();
       //post req to populate editor
-      const response = await fetch('/edit', {
+      const response = await fetch('/populateEditor', {
         method: 'POST', 
         contentType: false,
         cache: false,
@@ -104,7 +105,22 @@ class Upload extends React.Component {
                   />
               </Grid>
             </Grid>
-          
+          <Grid container spacing={2} justify="center">
+            { this.state.file ?
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      component="span"
+                      onClick={(e)=>this.uploadImage(e)}
+                    >
+                      Upload Image
+                    </Button> 
+                    :
+                    <Button variant="contained" disabled color="secondary" component="span">
+                      Upload image
+                    </Button>
+            }
+          </Grid>
         </Container>
       );
     }
