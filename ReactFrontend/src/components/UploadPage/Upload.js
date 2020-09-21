@@ -16,7 +16,18 @@ class Upload extends React.Component {
       })
     }
     
-    async continueToEditor() {
+  async continueToEditor() {
+    //post req to upload
+    fetch('/upload', {
+      type: "POST",
+      url: "/upload",
+      data: this.state.file, //filepath
+      contentType: false,
+      cache: false,
+      processData: false
+    });
+
+      //post req to populate editor
       const response = await fetch('/edit', {
         method: 'POST', 
         contentType: false,
