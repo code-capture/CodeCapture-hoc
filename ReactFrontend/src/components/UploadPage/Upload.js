@@ -106,6 +106,7 @@ class Upload extends React.Component {
               </Grid>
             </Grid>
           <Grid container spacing={2} justify="center">
+<Grid item>
             { this.state.file ?
                     <Button
                       variant="contained"
@@ -113,14 +114,15 @@ class Upload extends React.Component {
                       component="span"
                       onClick={(e)=>this.uploadImage(e)}
                     >
-                      Upload Image
+                      Submit Image
                     </Button> 
                     :
                     <Button variant="contained" disabled color="secondary" component="span">
-                      Upload image
+                      Submit Image
                     </Button>
             }
           </Grid>
+</Grid>
         </Container>
       );
     }
