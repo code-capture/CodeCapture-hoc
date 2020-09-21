@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Paper, Typography, Button, Grid,Container } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
   
 
 function Output() {
+    const [code, setCode] = useState('');
+    const [output, setOutput] = useState('');
+    const [input, setInput] = useState("/* input here */");
+    
     const classes = useStyles();
     return (
         <div>
@@ -39,7 +43,7 @@ function Output() {
                         Code
                     </Typography>
                     <Typography variant="body1" >
-                        console.log("Hello World!")
+                        {code}
                     </Typography>
                 </Paper>
                 </Grid>
@@ -50,7 +54,7 @@ function Output() {
                             Input
                         </Typography>
                         <Typography variant="body1" >
-                            {"/* input here */"}
+                            {input}
                         </Typography>
                     </Paper>
                 </Grid>
@@ -61,7 +65,7 @@ function Output() {
                             Output
                         </Typography>
                         <Typography variant="body1" >
-                            {"Hello World!"}
+                            {output}
                         </Typography>
                     </Paper>
                 </Grid>

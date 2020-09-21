@@ -16,6 +16,17 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+async function clickOutput() {
+    const response = await fetch('/output', {
+        method: 'POST', 
+        contentType: false,
+        cache: false,
+        processData: false,
+      },
+    );
+      console.log(response);
+}
+
 function EditorPage() {
     const classes = useStyles();
     return (
@@ -40,7 +51,12 @@ function EditorPage() {
             <Grid item justify="flex-end" align="right">
                 <div className={classes.root}>
                     <Link to="/out">
-                        <Button variant="contained" color="secondary" component="span">
+                        <Button 
+                            variant="contained" 
+                            color="secondary" 
+                            component="span"
+                            OnClick={clickOutput}
+                            >
                             Show output
                         </Button>
                     </Link>

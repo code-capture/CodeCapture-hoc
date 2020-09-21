@@ -12,9 +12,36 @@ class Upload extends React.Component {
     }
     handleChange(event) {
       this.setState({
-        file: URL.createObjectURL(event.target.files[0])
+        file: event.target.files[0]
       })
     }
+  
+  async uploadImage(event) {
+    event.preventDefault();const data = new FormData();
+    data.append('file', this.state.file);
+    //post req to upload
+      fetch('/uploadImage', {
+        type: "POST",
+        data: data, 
+        contentType: false,
+        cache: false,
+        processData: false
+      });
+  }
+
+  async continueToEditor(event) {
+    event.preventDefault();
+      //post req to populate editor
+      const response = await fetch('/populateEditor', {
+        method: 'POST', 
+        contentType: false,
+        cache: false,
+        processData: false,
+      },
+      );
+      console.log(response);
+    }
+  
     render() {
         
       return (
@@ -24,11 +51,6 @@ class Upload extends React.Component {
             <Typography component="h1" variant="h2" align="center" gutterBottom>
               Upload code image
             </Typography>
-            {/* <Typography variant="h5" align="center" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
-            </Typography> */}
             <div>
               <Grid container spacing={2} justify="center">
                 <Grid item>
@@ -48,7 +70,12 @@ class Upload extends React.Component {
                 <Grid item>
                   <Link to="/edit">
                   { this.state.file ?
-                    <Button variant="contained" color="secondary" component="span">
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      component="span"
+                      onClick={(e)=>this.continueToEditor(e)}
+                    >
                       Continue to editor
                     </Button> 
                     :
@@ -72,13 +99,30 @@ class Upload extends React.Component {
             >
               <Grid item align="center">           
                   <img
-                      alt="" src={this.state.file}
+                      alt="" src={URL.createObjectURL(this.state.file)}
                       height="50%"
                       width="50%"
                   />
               </Grid>
             </Grid>
-          
+          <Grid container spacing={2} justify="center">
+<Grid item>
+            { this.state.file ?
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      component="span"
+                      onClick={(e)=>this.uploadImage(e)}
+                    >
+                      Submit Image
+                    </Button> 
+                    :
+                    <Button variant="contained" disabled color="secondary" component="span">
+                      Submit Image
+                    </Button>
+            }
+          </Grid>
+</Grid>
         </Container>
       );
     }
