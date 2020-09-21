@@ -12,11 +12,25 @@ class Upload extends React.Component {
     }
     handleChange(event) {
       this.setState({
-        file: URL.createObjectURL(event.target.files[0])
+        file: event.target.files[0]
       })
     }
     
-    async continueToEditor() {
+  async continueToEditor(event) {
+    event.preventDefault();
+    const data = new FormData();
+    data.append('file', this.state.file);
+    //post req to upload
+    fetch('/upload', {
+      type: "POST",
+      url: "/upload",
+      data: data, 
+      contentType: false,
+      cache: false,
+      processData: false
+    });
+
+      //post req to populate editor
       const response = await fetch('/edit', {
         method: 'POST', 
         contentType: false,
@@ -36,11 +50,6 @@ class Upload extends React.Component {
             <Typography component="h1" variant="h2" align="center" gutterBottom>
               Upload code image
             </Typography>
-            {/* <Typography variant="h5" align="center" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
-            </Typography> */}
             <div>
               <Grid container spacing={2} justify="center">
                 <Grid item>
@@ -64,7 +73,7 @@ class Upload extends React.Component {
                       variant="contained"
                       color="secondary"
                       component="span"
-                      onClick={this.continueToEditor}
+                      onClick={(e)=>this.continueToEditor(e)}
                     >
                       Continue to editor
                     </Button> 
@@ -89,7 +98,7 @@ class Upload extends React.Component {
             >
               <Grid item align="center">           
                   <img
-                      alt="" src={this.state.file}
+                      alt="" src={URL.createObjectURL(this.state.file)}
                       height="50%"
                       width="50%"
                   />
