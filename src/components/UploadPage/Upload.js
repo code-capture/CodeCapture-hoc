@@ -1,6 +1,7 @@
 import { Typography, Container, Grid, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import axios from 'axios';
 
 class Upload extends React.Component {
     constructor(props){
@@ -17,16 +18,20 @@ class Upload extends React.Component {
     }
   
   async uploadImage(event) {
-    event.preventDefault();const data = new FormData();
+    event.preventDefault();
+    const data = new FormData();
     data.append('file', this.state.file);
     //post req to upload
-      fetch('/uploadImage', {
-        type: "POST",
-        data: data, 
-        contentType: false,
-        cache: false,
-        processData: false
-      });
+      // fetch('/uploadImage', {
+      //   type: "POST",
+      //   data: data, 
+      //   contentType: false,
+      //   processData: false
+      // });
+    axios
+    .post("/uploadImage", data)
+    .then(res => console.log(res))
+    .catch(err => console.warn(err));
   }
 
   async continueToEditor(event) {
@@ -97,13 +102,7 @@ class Upload extends React.Component {
                 justify="center"
                 alignItems="center"
             >
-              <Grid item align="center">           
-                  <img
-                      alt="" src={URL.createObjectURL(this.state.file)}
-                      height="50%"
-                      width="50%"
-                  />
-              </Grid>
+
             </Grid>
           <Grid container spacing={2} justify="center">
 <Grid item>
@@ -112,6 +111,7 @@ class Upload extends React.Component {
                       variant="contained"
                       color="secondary"
                       component="span"
+      
                       onClick={(e)=>this.uploadImage(e)}
                     >
                       Submit Image
