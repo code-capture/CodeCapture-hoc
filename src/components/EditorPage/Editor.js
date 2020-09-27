@@ -7,7 +7,7 @@ import "ace-builds/src-noconflict/theme-github";
 function Editor() {
   const [editorText, setEditorText] = useState('');
   return <AceEditor
-  placeholder="Placeholder Text"
+  // placeholder="Placeholder Text"
   mode="javascript"
   theme="monokai"
   name="blah2"
