@@ -1,4 +1,4 @@
-from flask import Flask,request,jsonify,render_template
+from flask import Flask,request,jsonify,render_template, session, redirect, url_for
 from werkzeug.utils import secure_filename
 from flask_cors import CORS, cross_origin
 import os
@@ -18,9 +18,13 @@ remote_image_handw_text_url = "https://raw.githubusercontent.com/MicrosoftDocs/a
 key = 'ffc60f43d45049b185f8ab5c9b79c2d3'
 
 
+
+
+
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(THIS_FOLDER, 'uploads')
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "GtzMjllbxItI9Q-nw6JqCg"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/uploadImage',methods=['GET','POST'])
@@ -77,12 +81,20 @@ def getResponse(responseUrl:str,key:str):
     json.dumps(analysis, indent=4)
     data2 = analysis["analyzeResult"]["readResults"][0]["lines"]
     print(data2)
-    f = open('submission.js', 'w')
+
+
+    # f = open('submission.js', 'w')
+    # for line in data2:
+    #     f.write(line['text'] + '\n')
+    # f.close()
+    stringx = ""
+
     for line in data2:
-        f.write(line['text'] + '\n')
-    f.close()
+       stringx += line['text'] + '\n'
 
+    print(stringx)
 
+    session["output"] = stringx
 
 def compilejs(textcode):
     with open('submission.js','w+') as mycode:
