@@ -76,6 +76,21 @@ function Output() {
                     <br/>     
                     <Grid item justify="flex-end" align="right">
                     <div className={classes.root}>
+                        <Link to="/instructions">
+                            <Button variant="contained" color="secondary" component="span">
+                                Go to instructions
+                            </Button>
+                        </Link>
+                        <Link to="/upload">
+                            <Button variant="contained" color="secondary" component="span">
+                                Take another picture
+                            </Button>
+                        </Link>
+                        <Link to="/edit">
+                            <Button variant="contained" color="secondary" component="span">
+                                Edit code
+                            </Button>
+                        </Link>
                         <Link to="/done">
                             <Button variant="contained" color="secondary" component="span">
                                 Finish
