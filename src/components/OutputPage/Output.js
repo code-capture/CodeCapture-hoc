@@ -51,18 +51,7 @@ function Output() {
                     row
                     justify="center"
                     alignItems="center"
-                >
-                    <Grid item>
-                    <Paper elevation={3} className={classes.paper}>
-                        <Typography  variant="h5" component="h1">
-                            Code
-                        </Typography>
-                        <Typography variant="body1" >
-                            {code}
-                        </Typography>
-                    </Paper>
-                    </Grid>
-                    <br /> 
+                > 
                     <Grid item>
                         <Paper elevation={3} className={classes.paper}>
                             <Typography  variant="h5" component="h1">

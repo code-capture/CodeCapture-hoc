@@ -51,6 +51,11 @@ export default function Instructions() {
         </Grid>
         <Grid item justify="flex-end" align="right">
         <div className={classes.root}>
+            <Link to="/done">
+              <Button variant="contained" color="secondary" component="span">
+                One hour is up, finish
+              </Button>
+            </Link>
             <Link to="/upload">
               <Button variant="contained" color="secondary" component="span">
                 Continue

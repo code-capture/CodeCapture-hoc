@@ -106,6 +106,13 @@ class Upload extends React.Component {
             </Grid>
           <Grid container spacing={2} justify="center">
           <Grid item>
+            <Link to="/done">
+                <Button variant="contained" color="secondary" component="span">
+                  One hour is up, finish
+                </Button>
+            </Link>
+          </Grid>
+          <Grid item>
             { this.state.file ?
                     <Button
                       variant="contained"

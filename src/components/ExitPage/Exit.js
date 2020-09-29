@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Grid, Button } from '@material-ui/core';
 import '../LandingPage/landing.css';
-
+import { Link } from 'react-router-dom';
 const Exit = () => {
   
   return (
@@ -10,21 +10,25 @@ const Exit = () => {
       <Grid row>
         <Grid item lg={12}>
           <div class="content">
-            <h2> Thank you for using Code Capture! </h2>
+            <h2> Congratulations! </h2>
               <h3>
-                {`If you have the time, please fill put a short feedback of the platform!\n
-                Then please head over to the HoC site to collect your certificate.`}
+                {`You have successfully learned the basics of programming and computer science using JavaScript!`}
               </h3>
               <hr />
               
-              <Button variant="contained" color="secondary" >
+              <Button variant="contained" color="secondary" style={{margin:"3px"}}>
                 Give Feedback
               </Button>
-              <br />
-              <br/>
-              <Button variant="contained" color="secondary" >
+              <Button href="http://code.org/api/hour/finish" variant="contained" color="secondary" >
                 Collect your certificate!      
               </Button>
+              <br />
+              <br />
+              <Link to="/">
+                    <Button variant="contained" color="secondary" component="span">
+                    Back to home page
+                    </Button>
+              </Link>
           </div>
         </Grid>
       </Grid>
