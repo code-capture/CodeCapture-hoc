@@ -17,14 +17,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 async function clickOutput() {
-    const response = await fetch('/output', {
-        method: 'POST', 
-        contentType: false,
-        cache: false,
-        processData: false,
-      },
-    );
-      console.log(response);
+    const script = document.createElement('script');
+	  script.src = window.sessionStorage.getItem("code")
+	  script.async = true;
+	  document.body.appendChild(script);
 }
 
 function EditorPage() {
@@ -46,7 +42,7 @@ function EditorPage() {
                 </Grid>
             </Grid>   
             <br />
-            <STDIN/>
+            {/* <STDIN/> */}
             <Grid row>
             <Grid item justify="flex-end" align="right">
                 <div className={classes.root}>

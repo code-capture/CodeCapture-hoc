@@ -19,9 +19,9 @@ const useStyles = makeStyles((theme) => ({
   
 
 function Output() {
-    const [code, setCode] = useState('');
+    const [code, setCode] = useState(window.sessionStorage.getItem('code'));
     const [output, setOutput] = useState('');
-    const [input, setInput] = useState("/* input here */");
+    
     
     const classes = useStyles();
     return (
@@ -46,17 +46,6 @@ function Output() {
                         {code}
                     </Typography>
                 </Paper>
-                </Grid>
-                <br />
-                <Grid item>
-                    <Paper elevation={3} className={classes.paper}>
-                        <Typography  variant="h5" component="h1">
-                            Input
-                        </Typography>
-                        <Typography variant="body1" >
-                            {input}
-                        </Typography>
-                    </Paper>
                 </Grid>
                 <br /> 
                 <Grid item>
