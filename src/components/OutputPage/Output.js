@@ -36,7 +36,7 @@ function Output() {
                 }
             };
         }
-    })
+    },[])
 
     const classes = useStyles();
     return (

@@ -35,8 +35,7 @@ class Upload extends React.Component {
     .catch(err => console.warn(err));
   }
 
-    render() {
-        
+    render() {  
       return (
         
           <Container maxWidth="sm">

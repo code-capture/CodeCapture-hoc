@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Editor from './Editor';
 import { Container,Grid,Button,Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
@@ -18,6 +18,24 @@ const useStyles = makeStyles((theme) => ({
 
 function EditorPage() {
     const classes = useStyles();
+
+    useEffect(() => {
+        if (window.console) {
+            console = { 
+                log: function(){
+                    var output='',
+                        console=document.getElementById('console');
+                    for (var i=0;i<arguments.length;i++) {
+                        output+=arguments[i]+' ';
+                    }
+                    console.innerText+=output+"\n";
+                },
+                error : window.console.error
+            };
+        }
+    },[])
+
+
     return (
         <Container>
             <br/>
