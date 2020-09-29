@@ -23,6 +23,20 @@ function Output() {
     const [code, setCode] = useState(window.sessionStorage.getItem('code'));
     const [output, setOutput] = useState('');
     
+    useEffect(() => {
+        if (window.console) {
+            console = { 
+                log: function(){
+                    var output='',
+                        console=document.getElementById('console');
+                    for (var i=0;i<arguments.length;i++) {
+                        output+=arguments[i]+' ';
+                    }
+                    console.innerText+=output+"\n";
+                }
+            };
+        }
+    })
 
     const classes = useStyles();
     return (
@@ -74,7 +88,6 @@ function Output() {
             </Container>
             <Helmet>
                 <script type="text/javascript">
-                    
                     {code}
                 </script>
             </Helmet>

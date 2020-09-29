@@ -7,13 +7,16 @@ class Upload extends React.Component {
     constructor(props){
       super(props)
       this.state = {
-        file: null
+        file: null,
+        done: false,
+        fileUrl : null
         }
         this.handleChange = this.handleChange.bind(this)
     }
     handleChange(event) {
       this.setState({
-        file: event.target.files[0]
+        file: event.target.files[0],
+        fileUrl: URL.createObjectURL(event.target.files[0])
       })
     }
   
@@ -23,7 +26,12 @@ class Upload extends React.Component {
     data.append('file', this.state.file);
     axios
     .post("/uploadImage", data)
-    .then(res => window.sessionStorage.setItem('code',res.data))
+      .then(res => {
+        window.sessionStorage.setItem('code', res.data)
+        this.setState({
+          done: true
+        })
+      })
     .catch(err => console.warn(err));
   }
 
@@ -54,7 +62,7 @@ class Upload extends React.Component {
                 </Grid>
                 <Grid item>
                   <Link to="/edit">
-                  { this.state.file ?
+                  { this.state.done ?
                     <Button
                       variant="contained"
                       color="secondary"
@@ -82,10 +90,22 @@ class Upload extends React.Component {
                 justify="center"
                 alignItems="center"
             >
-
+          </Grid>
+          <Grid
+                row
+                justify="center"
+                alignItems="center"
+            >
+              <Grid item align="center">           
+                  <img
+                      alt="" src={this.state.fileUrl}
+                      height="50%"
+                      width="50%"
+                  />
+              </Grid>
             </Grid>
           <Grid container spacing={2} justify="center">
-<Grid item>
+          <Grid item>
             { this.state.file ?
                     <Button
                       variant="contained"
@@ -102,7 +122,7 @@ class Upload extends React.Component {
                     </Button>
             }
           </Grid>
-</Grid>
+        </Grid>
         </Container>
       );
     }
