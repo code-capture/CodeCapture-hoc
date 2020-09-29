@@ -16,7 +16,9 @@ const Exit = () => {
               </h3>
               <hr />
               
-              <Button variant="contained" color="secondary" style={{margin:"3px"}}>
+              <Button
+                href="https://forms.office.com/Pages/ResponsePage.aspx?id=oBzDhDusrk6tEVGdgCM-b9YMMgNwDuhOiA0KAnfv2aVUQ09VMlVEOEVIUEhJRjFUSTMxVkxVR0IxSS4u"
+                variant="contained" color="secondary" style={{ marginRight: "20px" }}>
                 Give Feedback
               </Button>
               <Button href="http://code.org/api/hour/finish" variant="contained" color="secondary" >

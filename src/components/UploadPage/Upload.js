@@ -73,7 +73,7 @@ class Upload extends React.Component {
                     </Button> 
                     :
                     <Button variant="contained" disabled color="secondary" component="span">
-                      Continue to editor
+                      Wait for it
                     </Button>
                   }
                   </Link>  
