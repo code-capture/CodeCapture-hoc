@@ -23,23 +23,10 @@ class Upload extends React.Component {
     data.append('file', this.state.file);
     axios
     .post("/uploadImage", data)
-    .then(res => console.log(res.data))
+    .then(res => window.sessionStorage.setItem('code',res.data))
     .catch(err => console.warn(err));
   }
 
-  // async continueToEditor(event) {
-  //   event.preventDefault();
-  //     //post req to populate editor
-  //     const response = await fetch('/populateEditor', {
-  //       method: 'POST', 
-  //       contentType: false,
-  //       cache: false,
-  //       processData: false,
-  //     },
-  //     );
-  //     console.log(response);
-  //   }
-  
     render() {
         
       return (

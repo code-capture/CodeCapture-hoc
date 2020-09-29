@@ -10,7 +10,7 @@ const Landing = () => {
     <Container>
       <Grid row>
         <Grid item lg={12}>
-          <div class="content">
+          <div className="content">
             <h1>Code Capture</h1>
             <h3>From pen and paper to editor and compiler!</h3>
             <hr />

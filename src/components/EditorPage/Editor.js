@@ -4,11 +4,11 @@ import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
 
 function Editor() {
-    const [editorText, setEditorText] = useState(document.cookie.output);
+    const [editorText, setEditorText] = useState(window.sessionStorage.getItem('code'));
 
   const onEditorChange = (val) => {  
       setEditorText(val); 
-         document.cookie.output = val;  
+         window.sessionStorage.setItem('code',val);  
         }
         
   return <AceEditor
