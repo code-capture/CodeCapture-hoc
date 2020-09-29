@@ -42,7 +42,7 @@ class Upload extends React.Component {
           <Container maxWidth="sm">
             <br/>
             <Typography component="h1" variant="h2" align="center" gutterBottom>
-              Upload code image
+              Upload Code Image
             </Typography>
             <div>
               <Grid container spacing={2} justify="center">
@@ -82,7 +82,7 @@ class Upload extends React.Component {
             </div> 
             <br />
             <Typography variant="h6" align="center">
-                  Image preview
+                  Image Preview
             </Typography>
             <hr/>  
             <Grid

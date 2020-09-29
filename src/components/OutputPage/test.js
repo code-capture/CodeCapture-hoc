@@ -3,11 +3,7 @@ function Calci() {
     console.log("We will print a square with side of length 5")
     var option
     var pattern
-    console.log("Which character would you like to print?")
-    console.log("1. *")
-    console.log("2. X")
-    console.log("3. +")
-    option = prompt("Enter option number:");
+    option = prompt("Which character would you like to print?\n1. *\n2. X\n3. +\nEnter option number:");
     switch (parseInt(option)) {
     case 1: pattern = '*'; break;
     case 2: pattern = 'X'; break;
