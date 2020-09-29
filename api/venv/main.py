@@ -21,9 +21,13 @@ key = 'e96f4323f1704835ba510acfe25831f1'
 
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(THIS_FOLDER, 'uploads')
-app = Flask(__name__)
+app = Flask(__name__, static_folder = "../../build", static_url_path="/")
 app.config["SECRET_KEY"] = "GtzMjllbxItI9Q-nw6JqCg"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 @app.route('/uploadImage',methods=['GET','POST'])
 @cross_origin(supports_credentials=True)
@@ -67,7 +71,7 @@ def sendRequest(path):
 
     return response
 
-def getResponse(responseUrl:str,key:str):
+def getResponse(responseUrl,key):
 
     headers = {
         "Ocp-Apim-Subscription-Key" : key,
