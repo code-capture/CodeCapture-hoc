@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 async function clickOutput() {
     const script = document.createElement('script');
-	  script.src = window.sessionStorage.getItem("code")
+	  script.src = "../../../test.js"
 	  script.async = true;
 	  document.body.appendChild(script);
 }
