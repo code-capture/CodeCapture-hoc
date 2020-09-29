@@ -19,8 +19,6 @@ key = 'ffc60f43d45049b185f8ab5c9b79c2d3'
 
 
 
-
-
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(THIS_FOLDER, 'uploads')
 app = Flask(__name__)
