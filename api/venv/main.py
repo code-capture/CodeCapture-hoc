@@ -1,4 +1,4 @@
-from flask import Flask,request,jsonify,render_template, session, redirect, url_for
+from flask import Flask,request,jsonify,render_template, redirect, url_for, session
 from werkzeug.utils import secure_filename
 from flask_cors import CORS, cross_origin
 import os
@@ -39,7 +39,7 @@ def uploadImage():
         time.sleep(2)
         getResponse(response.headers["Operation-Location"],key)
         # output = compilejs(textcode)
-        return jsonify({'status':'ok'})
+        return (session["output"])
     return jsonify({'status':'file not found!!'})
 
 

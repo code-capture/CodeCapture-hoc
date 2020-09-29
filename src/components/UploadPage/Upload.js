@@ -21,31 +21,24 @@ class Upload extends React.Component {
     event.preventDefault();
     const data = new FormData();
     data.append('file', this.state.file);
-    //post req to upload
-      // fetch('/uploadImage', {
-      //   type: "POST",
-      //   data: data, 
-      //   contentType: false,
-      //   processData: false
-      // });
     axios
     .post("/uploadImage", data)
-    .then(res => console.log(res))
+    .then(res => console.log(res.data))
     .catch(err => console.warn(err));
   }
 
-  async continueToEditor(event) {
-    event.preventDefault();
-      //post req to populate editor
-      const response = await fetch('/populateEditor', {
-        method: 'POST', 
-        contentType: false,
-        cache: false,
-        processData: false,
-      },
-      );
-      console.log(response);
-    }
+  // async continueToEditor(event) {
+  //   event.preventDefault();
+  //     //post req to populate editor
+  //     const response = await fetch('/populateEditor', {
+  //       method: 'POST', 
+  //       contentType: false,
+  //       cache: false,
+  //       processData: false,
+  //     },
+  //     );
+  //     console.log(response);
+  //   }
   
     render() {
         
@@ -79,7 +72,7 @@ class Upload extends React.Component {
                       variant="contained"
                       color="secondary"
                       component="span"
-                      onClick={(e)=>this.continueToEditor(e)}
+                      
                     >
                       Continue to editor
                     </Button> 

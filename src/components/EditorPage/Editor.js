@@ -1,17 +1,22 @@
 import React, { useState} from "react";
-import AceEditor from "react-ace";
- 
+import AceEditor from "react-ace"; 
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
- 
+
 function Editor() {
-  const [editorText, setEditorText] = useState('');
+    const [editorText, setEditorText] = useState(document.cookie.output);
+
+  const onEditorChange = (val) => {  
+      setEditorText(val); 
+         document.cookie.output = val;  
+        }
+        
   return <AceEditor
   // placeholder="Placeholder Text"
   mode="javascript"
   theme="monokai"
-  name="blah2"
-    onChange={(newValue)=>setEditorText(newValue)}
+  name="blah2"    
+    onChange={(newValue)=>onEditorChange(newValue)}  
   width="100%"
   fontSize={14}
   showPrintMargin={true}
