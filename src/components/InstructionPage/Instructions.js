@@ -23,7 +23,7 @@ export default function Instructions() {
     <Container>
       <br/>
       < Typography variant="h2" align="center">
-        Instructions for the activity
+        Instructions For The Activity
       </Typography>
       <Grid
         row
