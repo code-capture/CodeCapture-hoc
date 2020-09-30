@@ -18,10 +18,13 @@ const Exit = () => {
               
               <Button
                 href="https://forms.office.com/Pages/ResponsePage.aspx?id=oBzDhDusrk6tEVGdgCM-b9YMMgNwDuhOiA0KAnfv2aVUQ09VMlVEOEVIUEhJRjFUSTMxVkxVR0IxSS4u"
+                target="_blank"
                 variant="contained" color="secondary" style={{ marginRight: "20px" }}>
                 Give Feedback
               </Button>
-              <Button href="http://code.org/api/hour/finish" variant="contained" color="secondary" >
+              <Button href="http://code.org/api/hour/finish" 
+                target="_blank"
+                variant="contained" color="secondary" >
                 Collect your certificate!      
               </Button>
               <br />
