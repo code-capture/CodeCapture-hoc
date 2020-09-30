@@ -49,18 +49,9 @@ function Output() {
                         </Paper>
                     </Grid>
                     <br/>     
+                         
                     <Grid item justify="flex-end" align="right">
-                    <div className={classes.root}>
-                        <Link to="/instructions">
-                            <Button variant="contained" color="secondary" component="span">
-                                Go to instructions
-                            </Button>
-                        </Link>
-                        <Link to="/upload">
-                            <Button variant="contained" color="secondary" component="span">
-                                Take another picture
-                            </Button>
-                        </Link>
+                    <div className={classes.root}>    
                         <Link to="/edit">
                             <Button variant="contained" color="secondary" component="span">
                                 Edit code
@@ -73,6 +64,21 @@ function Output() {
                         </Link>
                     </div>
                     </Grid>
+                    <Grid item justify="flex-end" align="right">
+                    <div className={classes.root}>
+                        <Link to="/instructions">
+                                <Button style={{margin:"10px"}}variant="contained" color="secondary" component="span">
+                                Go to instructions
+                            </Button>
+                        </Link>
+                        <Link to="/upload">
+                            <Button variant="contained" color="secondary" component="span">
+                                Take another picture
+                            </Button>
+                        </Link>
+                    </div>
+                    </Grid>
+                    <br/>
                 </Grid>
                 <br />
             </Container>
