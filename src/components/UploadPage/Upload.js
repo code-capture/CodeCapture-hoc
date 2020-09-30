@@ -24,12 +24,16 @@ class Upload extends React.Component {
     event.preventDefault();
     const data = new FormData();
     data.append('file', this.state.file);
+    this.setState({
+      file: null
+    })
     axios
     .post("/uploadImage", data)
       .then(res => {
         window.sessionStorage.setItem('code', res.data)
         this.setState({
-          done: true
+          done: true,
+          file: data['file']
         })
       })
     .catch(err => console.warn(err));
@@ -124,7 +128,7 @@ class Upload extends React.Component {
                     </Button> 
                     :
                     <Button variant="contained" disabled color="secondary" component="span">
-                      Submit Image
+                      Waiting...
                     </Button>
             }
           </Grid>
