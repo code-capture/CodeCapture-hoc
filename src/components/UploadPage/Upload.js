@@ -25,7 +25,8 @@ class Upload extends React.Component {
     const data = new FormData();
     data.append('file', this.state.file);
     this.setState({
-      file: null
+      file: null,
+      done: false
     })
     axios
     .post("/uploadImage", data)
