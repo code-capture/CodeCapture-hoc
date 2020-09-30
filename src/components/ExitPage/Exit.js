@@ -10,16 +10,19 @@ const Exit = () => {
       <Grid row>
         <Grid item lg={12}>
           <div class="content">
-            <h2> Congratulations! </h2>
-              <h3>
-                {`You have successfully learned the basics of programming and computer science using JavaScript!`}
-              </h3>
-              <hr />
-              
+              <Grid row >
+                <Grid item xs={12}>
+                  <h2> Congrats! </h2>
+                  <h3>
+                    {`You have successfully learned the basics of programming and computer science using JavaScript!`}
+                  </h3>
+                  <hr />                  
+                </Grid>
+              </Grid>
               <Button
                 href="https://forms.office.com/Pages/ResponsePage.aspx?id=oBzDhDusrk6tEVGdgCM-b9YMMgNwDuhOiA0KAnfv2aVUQ09VMlVEOEVIUEhJRjFUSTMxVkxVR0IxSS4u"
                 target="_blank"
-                variant="contained" color="secondary" style={{ marginRight: "20px" }}>
+                variant="contained" color="secondary" style={{ margin: "20px" }}>
                 Give Feedback
               </Button>
               <Button href="http://code.org/api/hour/finish" 
