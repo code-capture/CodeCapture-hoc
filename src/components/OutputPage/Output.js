@@ -32,6 +32,10 @@ function Output() {
                 < Typography variant="h2" align="center">
                     Output
                 </Typography>
+                <br />
+                < Typography variant="h5" align="center">
+                    In case the output is blank, please check the code for errors
+                </Typography>
                 <br/>
                 <Grid
                     row
