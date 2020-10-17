@@ -15,7 +15,7 @@ import time
 remote_image_handw_text_url = "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg"
 
 
-key = 'e96f4323f1704835ba510acfe25831f1'
+key = <Azure Computer Vision Subscription Key>
 
 
 
@@ -52,7 +52,7 @@ def uploadImage():
 
 def sendRequest(path):
 
-    requestUrl = "https://codecapture.cognitiveservices.azure.com/vision/v3.0/read/analyze?language=en"
+    requestUrl = <Azure Computer Vision Endpoint>
 
     headers = {
     "Content-Type" : "application/octet-stream",
