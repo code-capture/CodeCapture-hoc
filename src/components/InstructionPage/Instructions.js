@@ -47,7 +47,7 @@ export default function Instructions() {
                 Office
             </a>.
           </iframe>
-
+        
         </Grid>
         <Grid item justify="flex-end" align="right">
         <div className={classes.root}>
@@ -64,8 +64,8 @@ export default function Instructions() {
         </div>
         </Grid>
       </Grid>
-      <br />
-      
+      <br/>
+      <img alt="" src="http://code.org/api/hour/begin_codecapture.png"/>
     </Container>
   );
 }
