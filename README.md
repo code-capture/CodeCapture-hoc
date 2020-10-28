@@ -18,3 +18,7 @@ While in recent times, the world has started moving towards pro-CS education, th
 * The backend server of the PWA was built using **Flask** and hosted on an **Azure VM**
 * The OCR functionality used to extract code from the scanned images of handwritten text was implemented using **Azure Cognitive Services** (Computer Vision Read API)
 * In order to allow editing of code before running, we embedded the **Ace Editor** using the Ace API
+
+---
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
