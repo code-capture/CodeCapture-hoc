@@ -1,46 +1,54 @@
 import { Typography, Container, Grid, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import React from 'react';
-import axios from 'axios';
+import Webcam from "react-webcam";
+import React, {useState, useRef} from 'react';
+// import axios from 'axios';
 
-class Upload extends React.Component {
-    constructor(props){
-      super(props)
-      this.state = {
-        file: null,
-        done: false,
-        fileUrl : null
-        }
-        this.handleChange = this.handleChange.bind(this)
-    }
-    handleChange(event) {
-      this.setState({
-        file: event.target.files[0],
-        fileUrl: URL.createObjectURL(event.target.files[0])
-      })
-    }
+function Upload() {
   
-  async uploadImage(event) {
-    event.preventDefault();
-    const data = new FormData();
-    data.append('file', this.state.file);
-    this.setState({
-      file: null,
-      done: false
-    })
-    axios
-    .post("/uploadImage", data)
-      .then(res => {
-        window.sessionStorage.setItem('code', res.data)
-        this.setState({
-          done: true,
-          file: data['file']
-        })
-      })
-    .catch(err => console.warn(err));
-  }
+  const webcamRef = useRef(null);
+  const [imgSrc, setImgSrc] = useState(null);
+  const [redirect, setRedirect] = useState(false);
 
-    render() {  
+  const capture = React.useCallback(() => {
+    const imageSrc = webcamRef.current.getScreenshot();
+    setImgSrc(imageSrc);
+    // console.log(imageSrc);
+  }, [webcamRef, setImgSrc]);
+
+  
+  const videoConstraints = {
+    width: 1280,
+    height: 720,
+    facingMode: "environment"
+  };
+
+  const extract = async (img) => {
+    let base64 = img.substring((img.indexOf(",")+1))
+    var url = "https://cc-ocr.azurewebsites.net/api/HttpTriggerCSharp1"
+    const requestOptions = {
+        method: 'POST',
+        body: JSON.stringify({
+            base64: base64
+        })
+    };
+  const res = await fetch(url, requestOptions);
+  const data = await res.json();
+    if (data.code === "Base64 String is Missing")
+        return null;
+    else 
+        return data.code;
+}
+
+const getCode = async () =>{
+  const code = await extract(imgSrc);
+  window.sessionStorage.setItem('code', code)
+  console.log(code)
+  if (code != null) setRedirect(true)
+  else
+    alert("Take another image please")
+}
+
       return (
         
           <Container maxWidth="sm">
@@ -51,27 +59,24 @@ class Upload extends React.Component {
             <div>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                    <input 
-                        type="file"
-                        style={{ display: 'none' }}
-                        accept="image/*"
-                        id="contained-button-file"  
-                        onChange={this.handleChange}
-                    />
                     <label htmlFor="contained-button-file">
-                        <Button variant="contained" color="secondary" component="span">
-                            Capture
+                        <Button 
+                        variant="contained" 
+                        color="secondary" 
+                        component="span"
+                        onClick ={imgSrc===null?capture:()=>{setImgSrc(null)}}
+                        >
+                            {imgSrc===null?"Capture":"Take another image"}
                         </Button>
                     </label>
                 </Grid>
                 <Grid item>
                   <Link to="/edit">
-                  { this.state.done ?
+                  { redirect ?
                     <Button
                       variant="contained"
                       color="secondary"
                       component="span"
-                      
                     >
                       Continue to editor
                     </Button> 
@@ -101,11 +106,25 @@ class Upload extends React.Component {
                 alignItems="center"
             >
               <Grid item align="center">           
-                  <img
-                      alt="" src={this.state.fileUrl}
-                      height="50%"
-                      width="50%"
-                  />
+              { imgSrc == null
+            ?
+          <Webcam
+            audio={false}
+            ref={webcamRef}
+            screenshotFormat="image/jpeg"
+            width="100%"
+            videoConstraints={videoConstraints}
+          />
+          :
+          null
+        }
+        
+        {imgSrc && (
+                <img
+                    alt="preview"
+                    src={imgSrc}
+          />
+        )}
               </Grid>
             </Grid>
           <Grid container spacing={2} justify="center">
@@ -117,13 +136,13 @@ class Upload extends React.Component {
             </Link>
           </Grid>
           <Grid item>
-            { this.state.file ?
+            { imgSrc!=null ?
                     <Button
                       variant="contained"
                       color="secondary"
                       component="span"
       
-                      onClick={(e)=>this.uploadImage(e)}
+                      onClick={getCode}
                     >
                       Submit Image
                     </Button> 
@@ -132,10 +151,10 @@ class Upload extends React.Component {
                       Waiting...
                     </Button>
             }
+
           </Grid>
         </Grid>
         </Container>
       );
-    }
-  }
+}
 export default Upload;
