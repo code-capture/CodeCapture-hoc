@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
   
 
 function Output() {
-    const [code, setCode] = useState(window.sessionStorage.getItem('code'));
+    const code = window.sessionStorage.getItem('code');
+    // eslint-disable-next-line
     const [output, setOutput] = useState('');
     
 

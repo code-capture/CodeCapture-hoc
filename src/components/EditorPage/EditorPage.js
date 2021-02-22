@@ -21,6 +21,7 @@ function EditorPage() {
 
     useEffect(() => {
         if (window.console) {
+            // eslint-disable-next-line
             console = { 
                 log: function(){
                     var output='',
