@@ -6,6 +6,7 @@
 
 **CodeCapture** is a Progressive Web App designed to bridge the gap between pen-and-paper coding and coding on a computer using mobile phones, allowing users to learn coding without typing. 
 
+
 CodeCapture has the functionality to extract JavaScript code from images of handwritten text and then allows the user to edit and compile it within their browser. We also have an hour-long lesson on the fundamentals of JavaScript to assist with students' Computer Science education especially in times like these, where the COVID-19 pandemic and enforced lockdown have kept students away from school. Having a PWA allows the user to run it on both their computer as well as mobile devices, thus increasing its accessibility significantly.
 
 ## Inspiration

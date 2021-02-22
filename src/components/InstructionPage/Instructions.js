@@ -23,7 +23,7 @@ export default function Instructions() {
     <Container>
       <br/>
       < Typography variant="h2" align="center">
-        Instructions for the activity
+        Instructions For The Activity
       </Typography>
       <Grid
         row
@@ -35,7 +35,7 @@ export default function Instructions() {
         >
           <iframe
             title="ppt"
-            src="https://onedrive.live.com/embed?cid=703B19A0781C4859&amp;resid=703B19A0781C4859%21148&amp;authkey=AHvfQz-RUmtl0Co&amp;em=2&amp;wdAr=1.7777777777777777"
+            src="https://onedrive.live.com/embed?cid=703B19A0781C4859&amp;resid=703B19A0781C4859%21157&amp;authkey=AGUrpqVqRZGBX_E&amp;em=2&amp;wdAr=1.7777777777777777" 
             frameborder="0"
           >
             This is an embedded
@@ -47,10 +47,15 @@ export default function Instructions() {
                 Office
             </a>.
           </iframe>
-
+        
         </Grid>
         <Grid item justify="flex-end" align="right">
         <div className={classes.root}>
+            <Link to="/done">
+              <Button variant="contained" color="secondary" component="span">
+                One hour is up, finish
+              </Button>
+            </Link>
             <Link to="/upload">
               <Button variant="contained" color="secondary" component="span">
                 Continue
@@ -59,8 +64,8 @@ export default function Instructions() {
         </div>
         </Grid>
       </Grid>
-      <br />
-      
+      <br/>
+      <img alt="" src="http://code.org/api/hour/begin_codecapture.png"/>
     </Container>
   );
 }

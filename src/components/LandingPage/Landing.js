@@ -10,8 +10,21 @@ const Landing = () => {
     <Container>
       <Grid row>
         <Grid item lg={12}>
-          <div class="content">
-            <h1>Code Capture</h1>
+          <div className="content">
+            <Grid
+                row
+                justify="center"
+                alignItems="center"
+            >
+            <Grid item align="center">           
+                  <img
+                    alt=""
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/84/CodeCapture-Edit.png"
+                    height="40%"
+                    width="40%"
+                  />
+            </Grid>
+            </Grid>
             <h3>From pen and paper to editor and compiler!</h3>
             <hr />
             <Link to="/instructions">
