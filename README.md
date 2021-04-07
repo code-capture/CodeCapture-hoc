@@ -13,12 +13,14 @@ CodeCapture has the functionality to extract JavaScript code from images of hand
 
 While in recent times, the world has started moving towards pro-CS education, the fact is that buying computers is a distant dream for most students and educational institutions across the globe even today. In most developing countries, the ratio of CS students versus the number of computers available is highly skewed and most students are still learning programming via pen-and-paper. At the same time, however, the number of people who own mobile phones has significantly increased. Bridging this gap between pen-and-paper coding and coding on a computer by using a technology that people already own can bring a significant difference in the adoption of Computer Science education today.
 
+<!--
 ## Technologies Used
 
 * The frontend of the PWA was developed using **React**
 * The backend server of the PWA was built using **Flask** and hosted on an **Azure VM**
 * The OCR functionality used to extract code from the scanned images of handwritten text was implemented using **Azure Cognitive Services** (Computer Vision Read API)
 * In order to allow editing of code before running, we embedded the **Ace Editor** using the Ace API
+-->
 
 ---
 
